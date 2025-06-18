@@ -201,7 +201,7 @@
             }, 1000);
         }, 2000);
 
-        function addLine(text, className = '') {
+        function addLine(text, className ='') {
             const line = document.createElement('div');
             line.textContent = text;
             if (className) line.className = className;
@@ -319,6 +319,7 @@
                 addLine('SHITPOST - Drop an epic post');
                 addLine('WALLET - Check memecoin holdings');
                 addLine('CAT - Show a cute cat image');
+                addLine('WHO IS CREATING YOU? - Show the creator');
                 addLine('EXIT - Close terminal');
             } else if (cmd === 'clear') {
                 terminalOutput.innerHTML = '';
@@ -332,6 +333,8 @@
                 checkWallet();
             } else if (cmd === 'cat') {
                 showCat();
+            } else if (cmd === 'who is creating you?') {
+                addLine('Created by AhRzky.xyz', 'success');
             } else if (cmd === 'exit') {
                 addLine('Shutting down...', 'success');
                 setTimeout(() => {
