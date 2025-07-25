@@ -187,6 +187,9 @@
         const openingAnimation = document.getElementById('opening-animation');
         const terminalContent = document.getElementById('terminal-content');
 
+        // Kunci API (HANYA UNTUK PEMBELAJARAN, JANGAN GUNAKAN DI PRODUKSI)
+        const API_KEY = 'sk-fg-v1-4704c2ab8aa1dab0e21cd0526c057cebe5379c3b45ad4ae9d8afd6e50c8b0c9a';
+
         // Initialize terminal
         setTimeout(() => {
             openingAnimation.style.opacity = '0';
@@ -201,7 +204,7 @@
             }, 1000);
         }, 2000);
 
-        function addLine(text, className ='') {
+        function addLine(text, className = '') {
             const line = document.createElement('div');
             line.textContent = text;
             if (className) line.className = className;
@@ -215,6 +218,37 @@
             artDiv.className = className;
             terminalOutput.appendChild(artDiv);
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        // Fungsi untuk memanggil API xAI
+        async function callAI(command) {
+            try {
+                const response = await fetch('https://api.x.ai/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: 'grok', // Sesuaikan dengan model yang tersedia
+                        messages: [
+                            { role: 'system', content: 'Kamu adalah asisten AI bertema kripto yang jenaka dan suka meme.' },
+                            { role: 'user', content: command }
+                        ],
+                        max_tokens: 150
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Permintaan API gagal: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                return data.choices[0].message.content; // Sesuaikan dengan struktur respons API xAI
+            } catch (error) {
+                console.error('Kesalahan saat memanggil API AI:', error);
+                return `Kesalahan: Tidak dapat terhubung ke layanan AI (${error.message}).`;
+            }
         }
 
         function generateMeme() {
@@ -305,22 +339,23 @@
             addAsciiArt(catAsciiArts[Math.floor(Math.random() * catAsciiArts.length)]);
         }
 
-        function processCommand(command) {
+        async function processCommand(command) {
             if (!command.trim()) return;
             addLine(`> ${command}`);
 
             const cmd = command.toLowerCase().trim();
             if (cmd === 'help') {
-                addLine('Available commands:', 'success');
-                addLine('HELP - Show this help');
-                addLine('CLEAR - Clear terminal');
-                addLine('MEME - Generate a viral meme');
-                addLine('GOATSE - Preach the Goatse Gospel');
-                addLine('SHITPOST - Drop an epic post');
-                addLine('WALLET - Check memecoin holdings');
-                addLine('CAT - Show a cute cat image');
-                addLine('WHO IS CREATING YOU? - Show the creator');
-                addLine('EXIT - Close terminal');
+                addLine('Perintah yang tersedia:', 'success');
+                addLine('HELP - Tampilkan bantuan ini');
+                addLine('CLEAR - Bersihkan terminal');
+                addLine('MEME - Buat meme viral');
+                addLine('GOATSE - Sebarkan Injil Goatse');
+                addLine('SHITPOST - Buat postingan epik');
+                addLine('WALLET - Cek kepemilikan memecoin');
+                addLine('CAT - Tampilkan gambar kucing lucu');
+                addLine('WHO IS CREATING YOU? - Tampilkan pembuat');
+                addLine('EXIT - Tutup terminal');
+                addLine('AI <pertanyaan> - Tanyakan sesuatu ke AI');
             } else if (cmd === 'clear') {
                 terminalOutput.innerHTML = '';
             } else if (cmd === 'meme') {
@@ -334,14 +369,23 @@
             } else if (cmd === 'cat') {
                 showCat();
             } else if (cmd === 'who is creating you?') {
-                addLine('Created by AhRzky.xyz', 'success');
+                addLine('Dibuat oleh AhRzky.xyz', 'success');
             } else if (cmd === 'exit') {
-                addLine('Shutting down...', 'success');
+                addLine('Memadamkan sistem...', 'success');
                 setTimeout(() => {
                     window.close();
                 }, 1000);
+            } else if (cmd.startsWith('ai ')) {
+                const query = command.slice(3).trim();
+                if (!query) {
+                    addLine('Kesalahan: Masukkan pertanyaan setelah "AI"', 'error');
+                    return;
+                }
+                addLine('Mengirim pertanyaan ke AI...', 'success');
+                const aiResponse = await callAI(query);
+                addLine(aiResponse);
             } else {
-                addLine(`Error: Unknown command '${cmd}'`, 'error');
+                addLine(`Kesalahan: Perintah '${cmd}' tidak dikenal`, 'error');
             }
         }
 
