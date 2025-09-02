@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rzky | Personal Website</title>
+  <title>Rzky | Welcome</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -129,8 +129,36 @@
 <body>
 
   <header>
-    <h1>Rzky</h1>
-    <p>Web Developer | Designer | Freelancer</p>
+    <video autoplay muted loop id="myVideo">
+      <source src="video/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="header-content">
+      <h1>Rzky</h1>
+      <p>Web Developer | Designer | Freelancer</p>
+    </div>
+    <style>
+      header {
+        position: relative;
+        overflow: hidden;
+      }
+      #myVideo {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0;
+      }
+      .header-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 40px 15px;
+      }
+    </style>
   </header>
 
   <nav>
@@ -173,13 +201,13 @@
             <a href="https://absentkpelangi.wuaze.com/login.php" target="_blank">
                 <img 
                     src="img/project2.png" 
-                    alt="Absensi PT Tk Pelangi"
+                    alt="Absensi TK Pelangi"
                     onerror="this.onerror=null; 
-                            this.src='https://absentkpelangi.wuaze.com/login.php/login/assets/img/logo.png'; 
+                            this.src='https://absensiptindotekhnoplus.wuaze.com/login/assets/img/logo.png'; 
                             if(this.src.indexOf('login/assets') !== -1 && this.naturalHeight < 10) 
                                 this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'"
                 >
-                <h4>Absensi FaceRecognation TK Pelangi</h4>
+                <h4>Absensi Face Recognation TK Pelangi</h4>
             </a>
         </div>
 
