@@ -16,64 +16,108 @@
     header {
       background: linear-gradient(135deg, #2563eb, #1e40af);
       color: #fff;
-      padding: 60px 20px;
+      padding: 40px 15px;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+      font-size: 1rem;
+      margin-top: 8px;
       opacity: 0.9;
     }
     nav {
       background: #fff;
-      padding: 10px 20px;
+      padding: 15px 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav a {
-      margin: 0 15px;
+      display: inline-block;
+      margin: 5px 10px;
       text-decoration: none;
       color: #2563eb;
       font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #f0f9ff;
     }
     section {
-      padding: 60px 20px;
+      padding: 40px 15px;
       max-width: 900px;
       margin: auto;
     }
     section h2 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       color: #1e3a8a;
+      font-size: 1.8rem;
     }
     .about, .portfolio, .contact {
       background: #fff;
       border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 40px;
+      padding: 20px;
+      margin-bottom: 30px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: 1fr;
       gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
     }
     .portfolio-item {
       background: #f1f5f9;
       border-radius: 10px;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+    .portfolio-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .portfolio-item h3 {
+      font-size: 1.3rem;
+      margin: 10px 0;
+    }
+    .portfolio-item h4 {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin: 8px 0;
+    }
+    .contact p {
+      margin: 10px 0;
+      word-break: break-all;
+    }
+    .contact a {
+      color: #2563eb;
+      text-decoration: none;
     }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 20px 15px;
       background: #1e3a8a;
       color: #fff;
-      margin-top: 40px;
+      margin-top: 30px;
+      font-size: 0.9rem;
     }
     footer a {
       color: #fff;
@@ -98,7 +142,7 @@
   <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-      Hi, I’m <strong>Rzky</strong>. I am a web developer focused on creating clean, 
+      Hi, I'm <strong>Rzky</strong>. I am a web developer focused on creating clean, 
       modern, and responsive designs. I enjoy building websites that are not only visually appealing 
       but also easy to use.
     </p>
@@ -107,17 +151,51 @@
   <section id="portfolio" class="portfolio">
     <h2>Portfolio</h2>
     <div class="portfolio-grid">
-      <div class="portfolio-item">Project 1 https://absensiptindotekhnoplus.wuaze.com/login</div>
-      <div class="portfolio-item">Project 2</div>
-      <div class="portfolio-item">Project 3</div>
+        <!-- Project 1 -->
+        <div class="portfolio-item">
+            <h3>Project 1</h3>
+            <a href="https://absensiptindotekhnoplus.wuaze.com/login" target="_blank">
+                <img 
+                    src="img/project1.png" 
+                    alt="Absensi PT Indo Tekhnoplus" 
+                    onerror="this.onerror=null; 
+                            this.src='https://absensiptindotekhnoplus.wuaze.com/login/assets/img/logo.png'; 
+                            if(this.src.indexOf('login/assets') !== -1 && this.naturalHeight < 10) 
+                                this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'"
+                >
+                <h4>Absensi Geotag PT INSCIENPRO</h4>
+            </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-item">
+            <h3>Project 2</h3>
+            <a href="https://absensiptindotekhnoplus.wuaze.com/login.php" target="_blank">
+                <img 
+                    src="img/project2.png" 
+                    alt="Absensi PT Indo Tekhnoplus"
+                    onerror="this.onerror=null; 
+                            this.src='https://absensiptindotekhnoplus.wuaze.com/login/assets/img/logo.png'; 
+                            if(this.src.indexOf('login/assets') !== -1 && this.naturalHeight < 10) 
+                                this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'"
+                >
+                <h4>Absensi FaceRecognation TK Pelangi</h4>
+            </a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-item">
+            <h3>Coming Soon</h3>
+            <p>Project 3 under development</p>
+        </div>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:rzky@example.com">rzky15raditya@gmail.com</a></p>
+    <p>Email: <a href="mailto:rzky15raditya@gmail.com">rzky15raditya@gmail.com</a></p>
     <p>LinkedIn: <a href="#">linkedin.com/in/rzky</a></p>
-    <p>GitHub: <a href="#">github.com/rzky</a></p>
+    <p>GitHub: <a href="https://github.com/team2xyz" target="_blank">github.com/team2xyz</a></p>
   </section>
 
   <footer>
