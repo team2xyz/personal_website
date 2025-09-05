@@ -74,6 +74,19 @@
       opacity: 0.9;
     }
 
+    /* Typing Cursor Effect */
+    .typing-cursor::after {
+      content: '|';
+      display: inline-block;
+      animation: blink 0.7s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     /* Navigation */
     nav {
       background: var(--white);
@@ -314,8 +327,10 @@
     </video>
     <div class="header-content">
       <h1>Rzky</h1>
-      <p>Web Developer | UI/UX Designer | Freelancer</p>
+      <p id="typing-title" aria-live="polite"></p>
     </div>
+    <!-- Audio element for typing sound -->
+    <audio id="typing-sound" src="audio/iphone-typing.mp3" preload="auto"></audio>
   </header>
 
   <nav>
@@ -385,12 +400,76 @@
 
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 Rzky. All rights reserved.</p>
+      <p>&遵 2025 Rzky. All rights reserved.</p>
       <p>
         <a href="https://github.com" target="_blank" aria-label="GitHub">GitHub</a> |
         <a href="https://" target="_blank" aria-label="LinkedIn">LinkedIn</a>
       </p>
     </div>
   </footer>
+
+  <script>
+    // Typing effect function with typing and erasing
+    function typeText(elementId, text, typeSpeed, eraseSpeed, pauseDuration) {
+      const element = document.getElementById(elementId);
+      const audio = document.getElementById('typing-sound');
+      let i = 0;
+      let isTyping = true;
+
+      // Set volume to 50% to avoid being too loud
+      audio.volume = 0.5;
+
+      // Add typing cursor class
+      element.classList.add('typing-cursor');
+
+      function type() {
+        if (isTyping) {
+          // Typing phase
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            // Play typing sound for each character (except spaces)
+            if (text.charAt(i) !== ' ') {
+              audio.currentTime = 0; // Reset audio to start
+              audio.play().catch((e) => console.log('Audio play failed:', e));
+            }
+            i++;
+            setTimeout(type, typeSpeed);
+          } else {
+            // Pause before erasing
+            setTimeout(() => {
+              isTyping = false;
+              i = text.length;
+              type(); // Start erasing
+            }, pauseDuration);
+          }
+        } else {
+          // Erasing phase
+          if (i > 0) {
+            element.textContent = text.substring(0, i - 1);
+            // Play sound while erasing (optional, can remove if not desired)
+            if (text.charAt(i - 1) !== ' ') {
+              audio.currentTime = 0;
+              audio.play().catch((e) => console.log('Audio play failed:', e));
+            }
+            i--;
+            setTimeout(type, eraseSpeed);
+          } else {
+            // Reset to typing phase
+            isTyping = true;
+            i = 0;
+            setTimeout(type, 500); // Brief pause before restarting
+          }
+        }
+      }
+
+      // Start the typing effect
+      type();
+    }
+
+    // Start typing effect after page load
+    window.onload = function () {
+      typeText('typing-title', 'Web Developer | UI/UX Designer | Freelancer', 80, 50, 2000);
+    };
+  </script>
 </body>
 </html>
