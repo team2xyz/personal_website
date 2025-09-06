@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <meta charset="UTF-8">
+  <title>Rzky | Welcome</title>
+  <link rel="stylesheet" href="./style.css">
+
+
+
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome My Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav-logo">Rzky</a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <section class="home" id="home" style="position:relative;overflow:hidden;min-height:100vh;">
+            <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+                <source src="video/Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="home-container bd-grid" style="position:relative;z-index:1;">
+                <h1 class="home-title"><span>A.</span><br>Rzky</h1>
+                <span class="typing-effect" style="font-size:1.2rem;color:#fff;font-weight:500;margin-left:18px;vertical-align:middle;"></span>
+                <script>
+                const roles = ["Web Developer", "UI/UX Designer", "Freelancer"];
+                const typingElem = document.querySelector('.typing-effect');
+                let roleIdx = 0, charIdx = 0, isDeleting = false;
+
+                function typeEffect() {
+                    const currentRole = roles[roleIdx];
+                    if (!isDeleting) {
+                        typingElem.textContent = currentRole.slice(0, charIdx) + '|';
+                        charIdx++;
+                        if (charIdx > currentRole.length) {
+                            isDeleting = true;
+                            setTimeout(typeEffect, 1200);
+                        } else {
+                            setTimeout(typeEffect, 90);
+                        }
+                    } else {
+                        typingElem.textContent = currentRole.slice(0, charIdx) + '|';
+                        charIdx--;
+                        if (charIdx < 0) {
+                            isDeleting = false;
+                            roleIdx = (roleIdx + 1) % roles.length;
+                            setTimeout(typeEffect, 400);
+                        } else {
+                            setTimeout(typeEffect, 50);
+                        }
+                    }
+                }
+                typeEffect();
+                </script>
+                <style>
+                .home-title {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 0;
+                }
+                .typing-effect {
+                    display: inline-block;
+                    vertical-align: middle;
+                    letter-spacing: 1px;
+                    background: none;
+                    border-radius: 0;
+                    padding: 0 8px;
+                    box-shadow: none;
+                    margin-top: 0;
+                    min-width: 120px;
+                    color: #fff !important;
+                }
+                @media (max-width: 600px) {
+                    .typing-effect {
+                        font-size: 1rem;
+                        padding: 0 6px;
+                        min-width: 80px;
+                    }
+                }
+                </style>
+                <div class="home-scroll">
+                    <a href="#about" class="home-scroll-link"><i class='bx bx-up-arrow-alt'></i>SCROLL DOWN</a>
+                </div>
+                
+            </div>
+        </section>
+    
+
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about-container bd-grid" style="justify-content:center;align-items:center;">
+                <div class="about-img" style="width:140px;height:140px;aspect-ratio:1/1;overflow:hidden;border-radius:90%;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin:auto;display:flex;align-items:center;justify-content:center;">
+                    <img src="img/my.png" alt="Me" style="width:130%;height:130%;object-fit:cover;border-radius:100%;display:block;">
+                </div>
+
+                <div>
+                    <h2 class="about-subtitle">A.Rzky</h2>
+                    <span class="about-profession">Web Designer</span>
+                    <p class="about-text">Hi, I'm Rzky, a passionate web developer and designer dedicated to creating clean, modern, and responsive websites. With a focus on user experience and performance, I build digital solutions that are visually appealing and intuitive. Let's bring your ideas to life!</p>
+
+                    <div class="about-social">
+                        <a href="#" class="about-social-icon"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="about-social-icon"><i class='bx bxl-github'></i></a>
+                        <a href="#" class="about-social-icon"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>   
+            </div>
+        </section>
+
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills-container bd-grid">
+                <div class="skills-box">
+                    <h3 class="skils-subtitle">Development</h3>
+
+                    <span class="skills-name">HTML</span>
+                    <span class="skills-name">CSS</span>
+                    <span class="skills-name">JAVASCRIPT</span>
+                    <span class="skills-name">SCSS</span>
+                    <span class="skills-name">REACT</span>
+                    <span class="skills-name">VUE</span>
+
+                    <h3 class="skils-subtitle">Design</h3>
+
+                    <span class="skills-name">FIGMA</span>
+                    <span class="skills-name">ADOBE </span>
+                    <span class="skills-name">CANVA </span>
+                    <span class="skills-name">PHOTOSHOP</span>
+                </div>
+
+                <div class="skills-img">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section-title">Portfolio</h2>
+
+            <div class="portfolio-container bd-grid">
+                <a href="https://absensiptindotekhnoplus.wuaze.com/login" target="_blank" aria-label="View Absensi PT Indo Tekhnoplus Project" class="portfolio-item" style="background:transparent;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-radius:14px;overflow:hidden;display:block;transition:box-shadow 0.2s;">
+                    <img 
+                        src="img/project1.png" 
+                        alt="Absensi PT Indo Tekhnoplus Geotag Application" 
+                        loading="lazy"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'"
+                        style="width:100%;height:180px;object-fit:cover;border-radius:12px 12px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.08);"
+                    >
+                    <div style="padding:16px;background:transparent;">
+                        <h3 style="margin:0 0 6px 0;font-size:1.15rem;color:#1e40af;">Absensi PT.INSCIENPRO</h3>
+                        <h4 style="margin:0;font-size:0.98rem;font-weight:400;color:#555;">Web-based attendance system with geotagging</h4>
+                    </div>
+                </a>
+
+                <a href="https://absentkpelangi.wuaze.com/login.php" target="_blank" aria-label="View Absensi TK Pelangi Project" class="portfolio-item" style="background:transparent;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-radius:14px;overflow:hidden;display:block;transition:box-shadow 0.2s;">
+                    <img 
+                        src="img/project2.png" 
+                        alt="Absensi TK Pelangi Face Recognition Application" 
+                        loading="lazy"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'"
+                        style="width:100%;height:180px;object-fit:cover;border-radius:12px 12px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.08);"
+                    >
+                    <div style="padding:16px;background:transparent;">
+                        <h3 style="margin:0 0 6px 0;font-size:1.15rem;color:#1e40af;">Absensi TK Pelangi</h3>
+                        <h4 style="margin:0;font-size:0.98rem;font-weight:400;color:#555;">Face recognition attendance system</h4>
+                    </div>
+                </a>
+            </div>
+            </div>
+            <style>
+            .portfolio-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+            .portfolio-item {
+                background: #fff;
+                border-radius: 14px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                overflow: hidden;
+                transition: box-shadow 0.2s;
+            }
+            .portfolio-item:hover {
+                box-shadow: 0 4px 20px rgba(30,64,175,0.12);
+            }
+            @media (max-width: 768px) {
+                .portfolio-container {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+                .portfolio-item h3 {
+                    font-size: 1rem;
+                }
+                .portfolio-item h4 {
+                    font-size: 0.9rem;
+                }
+            }
+            </style>
+
+                
+
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact-container bd-grid">
+                <div class="contact-info">
+                    <h3 class="contact-subtitle">EMAIL</h3>
+                    <span class="contact-text">rizky15raditya@gmail.com</span>
+
+                    <h3 class="contact-subtitle">PHONE</h3>
+                    <span class="contact-text">+62 8161 7251 292</span>
+
+                    <h3 class="contact-subtitle">ADDRESS</h3>
+                    <span class="contact-text" id="timezone"></span>
+                    <script>
+                        const tzElem = document.getElementById('timezone');
+                        const now = new Date();
+                        const options = { timeZoneName: 'short' };
+                        const locale = 'en-US';
+                        const timeString = now.toLocaleTimeString(locale, options);
+                        const dateString = now.toLocaleDateString(locale);
+                        tzElem.textContent = `Jakarta, Indonesia (${dateString} ${timeString})`;
+                    </script>
+
+                </div>
+
+                <form action="" class="contact-form">
+                    <div class="contact-inputs">
+                        <input type="text" placeholder="Name" class="contact-input">
+                        <input type="email" placeholder="Email" class="contact-input">
+                    </div>
+
+                    <textarea name="" id="" cols="0" rows="10" class="contact-input"></textarea>
+
+                    <input type="submit" value="Send" class="contact-button">
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer section">
+        <div class="footer-container bd-grid">
+            <div class="footer-data">
+                <h2 class="footer-title">A.Rzky</h2>
+                <p class="footer-text">Every one can be anything </p>
+            </div>
+
+            <div class="footer-data">
+                <h2 class="footer-title">A.Rzky</h2>
+                <ul>
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#skills" class="footer-link">Skills</a></li>
+                    <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-data">
+                <h2 class="footer-title">FOLLOW</h2>
+
+                <a href="#" class="footer-social"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer-social"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer-social"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
