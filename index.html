@@ -58,7 +58,7 @@ function typeEffect() {
         
         for (let i = 0; i < charIdx; i++) {
             if (i === charIdx - 1) {
-                // Generate random mathematical expression
+               
                 const mathExpr = [
                     `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
                     `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
@@ -68,7 +68,7 @@ function typeEffect() {
                 ];
                 displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
             } else {
-                // Previous characters are stable
+                
                 displayText += currentRole[i];
             }
         }
@@ -306,7 +306,7 @@ function typeEffect() {
                     return;
                 }
 
-                // Email validation
+          
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert('Please enter a valid email address');
