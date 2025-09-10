@@ -352,6 +352,19 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     color: #fff !important;
 }
 
+/* Pengecualian untuk portfolio content dengan specificity yang lebih tinggi */
+.portfolio-container .portfolio-item .portfolio-content h3,
+.portfolio-container .portfolio-item .portfolio-content h4,
+.portfolio-container .portfolio-item .portfolio-content p,
+.portfolio-content h3[style*="color"],
+.portfolio-content h4[style*="color"],
+.portfolio-content p[style*="color"] {
+    color: #000 !important;
+    background-color: #fff !important;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
 /* Untuk subtitle, judul, dan link yang sebelumnya biru */
 .section-title,
 .about-subtitle,
