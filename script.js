@@ -1,4 +1,4 @@
-//Activating Mobile Menu
+
 
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId);
@@ -13,7 +13,7 @@ const showMenu = (toggleId, navId) => {
 
 showMenu('nav-toggle', 'nav-menu');
 
-//Toggling Menu by clicking in mobile menu links
+
 
 const navLink = document.querySelectorAll('.nav-link');
 
@@ -27,7 +27,7 @@ function linkAction() {
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
-// Changing Active Menu section while scrolling
+
 
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', scrollActive);
@@ -48,7 +48,7 @@ function scrollActive() {
     })
 }
 
-// Scroll Reveal Settings
+
 
 const sr = ScrollReveal({
     origin: 'top',
