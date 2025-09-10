@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome My Personal Website</title>
+    <title>Rzky | Welcome </title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -53,29 +53,68 @@
                 const typingElem = document.querySelector('.typing-effect');
                 let roleIdx = 0, charIdx = 0, isDeleting = false;
 
-                function typeEffect() {
-                    const currentRole = roles[roleIdx];
-                    if (!isDeleting) {
-                        typingElem.textContent = currentRole.slice(0, charIdx) + '|';
-                        charIdx++;
-                        if (charIdx > currentRole.length) {
-                            isDeleting = true;
-                            setTimeout(typeEffect, 1200);
-                        } else {
-                            setTimeout(typeEffect, 90);
-                        }
-                    } else {
-                        typingElem.textContent = currentRole.slice(0, charIdx) + '|';
-                        charIdx--;
-                        if (charIdx < 0) {
-                            isDeleting = false;
-                            roleIdx = (roleIdx + 1) % roles.length;
-                            setTimeout(typeEffect, 400);
-                        } else {
-                            setTimeout(typeEffect, 50);
-                        }
-                    }
-                }
+function typeEffect() {
+    const currentRole = roles[roleIdx];
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
+    
+    if (!isDeleting) {
+        let displayText = '';
+        // Build text with mathematical expressions and actual characters
+        for (let i = 0; i < charIdx; i++) {
+            if (i === charIdx - 1) {
+                // Generate random mathematical expression
+                const mathExpr = [
+                    `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
+                    `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
+                    `√${Math.floor(Math.random() * 100)}`,
+                    `${Math.floor(Math.random() * 10)}²`,
+                    `∑${Math.floor(Math.random() * 10)}`
+                ];
+                displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
+            } else {
+                // Previous characters are stable
+                displayText += currentRole[i];
+            }
+        }
+        
+        // Add random mathematical symbols at the end
+        if (charIdx < currentRole.length) {
+            displayText += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        
+        typingElem.textContent = '|' + displayText;
+        charIdx++;
+        
+        if (charIdx > currentRole.length) {
+            // Show final text and prepare for deletion
+            typingElem.textContent = '|' + currentRole;
+            isDeleting = true;
+            setTimeout(typeEffect, 500);
+        } else {
+            setTimeout(typeEffect, Math.random() * 100 + 50);
+        }
+    } else {
+        // Deleting effect with mathematical expressions
+        let displayText = currentRole.slice(0, charIdx);
+        if (charIdx > 0) {
+            const mathSymbols = '+-*/^√∑∏∫';
+            displayText += mathSymbols.charAt(Math.floor(Math.random() * mathSymbols.length));
+        }
+        
+        typingElem.textContent = '|' + displayText;
+        charIdx--;
+        
+        if (charIdx <= 0) {
+            isDeleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            typeEffect();
+        } else {
+            setTimeout(typeEffect, Math.random() * 30 + 30);
+        }
+    }
+}
+                
+                // Start the effect
                 typeEffect();
                 </script>
                 <style>
@@ -113,7 +152,7 @@
     
 
         <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
+            <h2 class="section-title">About me</h2>
 
             <div class="about-container bd-grid" style="justify-content:center;align-items:center;">
                 <div class="about-img" style="width:140px;height:140px;aspect-ratio:1/1;overflow:hidden;border-radius:90%;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin:auto;display:flex;align-items:center;justify-content:center;">
@@ -141,19 +180,19 @@
                 <div class="skills-box">
                     <h3 class="skils-subtitle">Development</h3>
 
-                    <span class="skills-name">HTML</span>
-                    <span class="skills-name">CSS</span>
-                    <span class="skills-name">JAVASCRIPT</span>
-                    <span class="skills-name">SCSS</span>
-                    <span class="skills-name">REACT</span>
-                    <span class="skills-name">VUE</span>
+                    <span class="skills-name"><i class='bx bxl-html5'></i> HTML</span>
+                    <span class="skills-name"><i class='bx bxl-css3'></i> CSS</span>
+                    <span class="skills-name"><i class='bx bxl-javascript'></i> JAVASCRIPT</span>
+                    <span class="skills-name"><i class='bx bxl-sass'></i> SCSS</span>
+                    <span class="skills-name"><i class='bx bxl-react'></i> REACT</span>
+                    <span class="skills-name"><i class='bx bxl-php'></i> PHP</span>
 
                     <h3 class="skils-subtitle">Design</h3>
 
-                    <span class="skills-name">FIGMA</span>
-                    <span class="skills-name">ADOBE </span>
-                    <span class="skills-name">CANVA </span>
-                    <span class="skills-name">PHOTOSHOP</span>
+                    <span class="skills-name"><i class='bx bxl-figma'></i> FIGMA</span>
+                    <span class="skills-name"><i class='bx bxl-adobe'></i> ADOBE</span>
+                    <span class="skills-name"><i class='bx bxs-palette'></i> CANVA</span>
+                    <span class="skills-name"><i class='bx bxl-adobe'></i> PHOTOSHOP</span>
                 </div>
 
                 <div class="skills-img">
@@ -163,72 +202,147 @@
         </section>
 
         <section class="portfolio section" id="portfolio">
-            <h2 class="section-title">Portfolio</h2>
+            <h2 class="section-title">My Project</h2>
 
-            <div class="portfolio-container bd-grid">
-                <a href="https://absensiptindotekhnoplus.wuaze.com/login" target="_blank" aria-label="View Absensi PT Indo Tekhnoplus Project" class="portfolio-item" style="background:transparent;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-radius:14px;overflow:hidden;display:block;transition:box-shadow 0.2s;">
-                    <img 
-                        src="img/project1.png" 
-                        alt="Absensi PT Indo Tekhnoplus Geotag Application" 
-                        loading="lazy"
-                        onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'"
-                        style="width:100%;height:180px;object-fit:cover;border-radius:12px 12px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.08);"
-                    >
-                    <div style="padding:16px;background:transparent;">
-                        <h3 style="margin:0 0 6px 0;font-size:1.15rem;color:#1e40af;">Absensi PT.INSCIENPRO</h3>
-                        <h4 style="margin:0;font-size:0.98rem;font-weight:400;color:#555;">Web-based attendance system with geotagging</h4>
-                    </div>
-                </a>
+<div class="portfolio-container bd-grid">
+    <a href="https://absensiptindotekhnoplus.wuaze.com/login" 
+       target="_blank" 
+       aria-label="View Absensi PT Indo Tekhnoplus Project" 
+       class="portfolio-item">
+        <div class="portfolio-image">
+            <img src="img/project1.png" 
+                 alt="Absensi PT Indo Tekhnoplus Geotag Application" 
+                 loading="lazy"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'">
+        </div>
+        <div class="portfolio-content" style="color: #000;">
+            <h3 style="color: #000;">Absensi PT.INSCIENPRO</h3>
+            <h4 style="color: #000;">Web-based attendance system with geotagging</h4>
+            <p class="portfolio-description" style="color: #000;">
+                A comprehensive attendance management system featuring geolocation tracking, 
+                real-time monitoring, and automated reporting capabilities. Built with modern 
+                web technologies to ensure reliable performance and user-friendly experience.
+            </p>
+        </div>
+    </a>
 
-                <a href="https://absentkpelangi.wuaze.com/login.php" target="_blank" aria-label="View Absensi TK Pelangi Project" class="portfolio-item" style="background:transparent;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-radius:14px;overflow:hidden;display:block;transition:box-shadow 0.2s;">
-                    <img 
-                        src="img/project2.png" 
-                        alt="Absensi TK Pelangi Face Recognition Application" 
-                        loading="lazy"
-                        onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'"
-                        style="width:100%;height:180px;object-fit:cover;border-radius:12px 12px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.08);"
-                    >
-                    <div style="padding:16px;background:transparent;">
-                        <h3 style="margin:0 0 6px 0;font-size:1.15rem;color:#1e40af;">Absensi TK Pelangi</h3>
-                        <h4 style="margin:0;font-size:0.98rem;font-weight:400;color:#555;">Face recognition attendance system</h4>
-                    </div>
-                </a>
-            </div>
-            </div>
-            <style>
-            .portfolio-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-            .portfolio-item {
-                background: #fff;
-                border-radius: 14px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-                overflow: hidden;
-                transition: box-shadow 0.2s;
-            }
-            .portfolio-item:hover {
-                box-shadow: 0 4px 20px rgba(30,64,175,0.12);
-            }
-            @media (max-width: 768px) {
-                .portfolio-container {
-                    grid-template-columns: 1fr;
-                    gap: 18px;
-                }
-                .portfolio-item h3 {
-                    font-size: 1rem;
-                }
-                .portfolio-item h4 {
-                    font-size: 0.9rem;
-                }
-            }
-            </style>
+    <a href="https://absentkpelangi.wuaze.com/login.php" 
+       target="_blank" 
+       aria-label="View Absensi TK Pelangi Project" 
+       class="portfolio-item">
+        <div class="portfolio-image">
+            <img src="img/project2.png" 
+                 alt="Absensi TK Pelangi Face Recognition Application" 
+                 loading="lazy"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'">
+        </div>
+        <div class="portfolio-content" style="color: #000;">
+            <h3 style="color: #000;">Absensi TK Pelangi</h3>
+            <h4 style="color: #000;">Face recognition attendance system</h4>
+            <p class="portfolio-description" style="color: #000;">
+                An innovative attendance solution utilizing facial recognition technology 
+                for accurate and contactless check-ins. Features include automatic face detection, 
+                attendance logging, and detailed reporting for school management.
+            </p>
+        </div>
+    </a>
+</div>
 
-                
+<style>
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-            </div>
-        </section>
+.portfolio-item {
+    background: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(30,64,175,0.12);
+}
+
+.portfolio-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.portfolio-content {
+    padding: 1.5rem;
+}
+
+.portfolio-content h3 {
+    color: #000;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.portfolio-content h4 {
+    color: #000;
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.portfolio-description {
+    color: #000;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.75rem;
+    }
+
+    .portfolio-image {
+        height: 180px;
+    }
+
+    .portfolio-content {
+        padding: 1rem;
+    }
+
+    .portfolio-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-content h4 {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-description {
+        font-size: 0.85rem;
+    }
+}
+</style>
+</div>
+</section>
 
         <section class="contact section" id="contact">
             <h2 class="section-title">Contact</h2>
@@ -236,38 +350,107 @@
             <div class="contact-container bd-grid">
                 <div class="contact-info">
                     <h3 class="contact-subtitle">EMAIL</h3>
-                    <span class="contact-text">rizky15raditya@gmail.com</span>
+                    <span class="contact-text">
+                        <a href="mailto:rizky15raditya@gmail.com" class="contact-link">
+                            rizky15raditya@gmail.com
+                        </a>
+                    </span>
 
                     <h3 class="contact-subtitle">PHONE</h3>
-                    <span class="contact-text">+62 8161 7251 292</span>
+                    <span class="contact-text">
+                        <a href="tel:+6281617251292" class="contact-link">
+                            +62 8161 7251 292
+                        </a>
+                    </span>
 
                     <h3 class="contact-subtitle">ADDRESS</h3>
                     <span class="contact-text" id="timezone"></span>
-                    <script>
-                        const tzElem = document.getElementById('timezone');
-                        const now = new Date();
-                        const options = { timeZoneName: 'short' };
-                        const locale = 'en-US';
-                        const timeString = now.toLocaleTimeString(locale, options);
-                        const dateString = now.toLocaleDateString(locale);
-                        tzElem.textContent = `Jakarta, Indonesia (${dateString} ${timeString})`;
-                    </script>
-
                 </div>
-
-                <form action="" class="contact-form">
-                    <div class="contact-inputs">
-                        <input type="text" placeholder="Name" class="contact-input">
-                        <input type="email" placeholder="Email" class="contact-input">
-                    </div>
-
-                    <textarea name="" id="" cols="0" rows="10" class="contact-input"></textarea>
-
-                    <input type="submit" value="Send" class="contact-button">
-                </form>
             </div>
-        </section>
+        <script>
+            // Update timezone display
+            function updateTimezone() {
+                const tzElem = document.getElementById('timezone');
+                const now = new Date();
+                const options = { 
+                    timeZone: 'Asia/Jakarta',
+                    timeZoneName: 'short',
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                tzElem.textContent = `Jakarta, Indonesia (${now.toLocaleString('en-US', options)})`;
+            }
 
+            // Update time every minute
+            updateTimezone();
+            setInterval(updateTimezone, 60000);
+
+            // Handle form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = this.querySelector('[name="name"]').value.trim();
+                const email = this.querySelector('[name="email"]').value.trim();
+                const message = this.querySelector('[name="message"]').value.trim();
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+
+                const mailtoLink = `mailto:rizky15raditya@gmail.com?subject=Contact Form: ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+                
+                window.location.href = mailtoLink;
+                this.reset();
+            });
+        </script>
+
+        <style>
+            .contact-link {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .contact-link:hover {
+                color: #1e40af;
+            }
+            .contact-input {
+                color: #000;
+                background: #fff;
+                padding: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 0.5rem;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                background: #1e40af;
+                color: #fff;
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .contact-button:hover {
+                background: #1e3a8a;
+            }
+        </style>
     </main>
 
     <footer class="footer section">
