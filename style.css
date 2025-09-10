@@ -83,7 +83,7 @@ img { max-width: 100%; height: auto; display: block; }
     margin-right: var(--mb2);
 }
 
-/*HEADER*/
+
 
 .l-header {
     width: 100%;
@@ -92,20 +92,20 @@ img { max-width: 100%; height: auto; display: block; }
     left: 0;
     z-index: var(--z-fixed);
     background: transparent;
-    /* Pastikan tidak ada background lain di header */
+    
 }
 
 .nav {
     background: transparent;
 }
 
-/* Jika ingin efek blur/transparan pada header, bisa tambahkan ini: */
+
 .l-header {
-    background: rgba(0,0,0,0.15); /* transparan gelap, bisa diubah sesuai selera */
+    background: rgba(0,0,0,0.15); 
     backdrop-filter: blur(2px);
 }
 
-/* Untuk menu mobile juga transparan */
+
 @media screen and (max-width: 768px) {
     .nav-menu {
         background: transparent;
@@ -152,7 +152,7 @@ img { max-width: 100%; height: auto; display: block; }
     .show { right: 0; }
 }
 
-/*HOME*/
+
 
 .home { 
     position: relative; 
@@ -177,13 +177,13 @@ img { max-width: 100%; height: auto; display: block; }
     width: 295px;
 }
 
-/*ABOUT*/
+
 
 .about-container {
-    background: transparent; /* dari var(--white-color) jadi transparan */
+    background: transparent; 
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: none; /* hilangkan shadow jika ingin benar-benar transparan */
+    box-shadow: none; 
 }
 
 .about-container { justify-items: center; row-gap: 2rem; text-align: center; }
@@ -208,12 +208,12 @@ img { max-width: 100%; height: auto; display: block; }
     .about-social-icon:hover { color: var(--first-color); }
 
 .about.section {
-    background: transparent; /* dari var(--white-color) jadi transparan */
+    background: transparent; 
     border-radius: 1rem;
     box-shadow: none;
 }
 
-/*SKILLS*/
+
 
 .skills-container { row-gap: 2rem; }
 .skills-subtitle { color: var(--first-color); margin-bottom: var(--mb3); }
@@ -231,10 +231,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 .skills-img img { border-radius: .5rem; }
 
-/*PORTFOLIO*/
+
 
 .portfolio {
-    background-color: transparent; /* dari var(--white-color) jadi transparan */
+    background-color: transparent; 
 }
 .portfolio-container { justify-items: center; row-gap: 2rem; }
 .portfolio-img { position: relative; overflow: hidden; }
@@ -265,7 +265,7 @@ img { max-width: 100%; height: auto; display: block; }
     overflow: hidden;
 }
 
-/*CONTACT*/
+
 
 .contact-container { row-gap: 2rem; }
 .contact-subtitle { font-size: var(--normal-font-size); color: var(--first-color); }
@@ -295,10 +295,10 @@ img { max-width: 100%; height: auto; display: block; }
     cursor: pointer;
 }
 
-/*FOOTER*/
+
 
 .footer {
-    background: rgba(0,0,0,0.15); /* transparan gelap */
+    background: rgba(0,0,0,0.15); 
     color: #fff;
     backdrop-filter: blur(2px);
 }
@@ -310,7 +310,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-social { font-size: 1.4rem; margin-right: var(--mb1); }
     .footer-social:hover { color: var(--first-color); }
 
-/*MEDIA QUERIES*/
+
 
 @media screen and (min-width: 768px) {
     body { margin: 0; }
@@ -348,12 +348,12 @@ img { max-width: 100%; height: auto; display: block; }
     .bd-grid { margin-left: auto; margin-right: auto; }
 }
 
-/* Aturan warna teks global dengan pengecualian */
+
 body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     color: #fff;
 }
 
-/* Gunakan !important hanya untuk elemen yang benar-benar membutuhkannya */
+
 .section-title,
 .home-title,
 .home-subtitle,
@@ -369,7 +369,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     color: #fff !important;
 }
 
-/* Styling untuk portfolio items */
+
 .portfolio-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -434,7 +434,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     font-weight: 500;
 }
 
-/* Media query untuk responsivitas portfolio */
+
 @media (max-width: 768px) {
     .portfolio-container {
         grid-template-columns: 1fr;
@@ -463,7 +463,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     }
 }
 
-/* Untuk subtitle, judul, dan link yang sebelumnya biru */
+
 .section-title,
 .about-subtitle,
 .about-profession,
@@ -477,7 +477,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, textarea {
     color: #fff !important;
 }
 
-/* Jika ada hover pada link, tetap putih */
+
 a:hover, .nav-link:hover, .footer-link:hover {
     color: #fff !important;
 }
