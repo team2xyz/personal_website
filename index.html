@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rzky | Welcome </title>
+    <title>Rzky | Welcome</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
+</head>
+<body>
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
@@ -29,117 +29,116 @@
             </div>
         </nav>
     </header>
+
     <main class="l-main">
         <section class="home" id="home" style="position:relative;overflow:hidden;min-height:100vh;">
             <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
                 <source src="video/Video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+
             <div class="home-container bd-grid" style="position:relative;z-index:1;">
                 <h1 class="home-title"><span>A.</span><br>Rzky</h1>
                 <span class="typing-effect" style="font-size:1.2rem;color:#fff;font-weight:500;margin-left:18px;vertical-align:middle;"></span>
-                <script>
-                const roles = ["Web Developer", "UI/UX Designer", "Freelancer"];
-                const typingElem = document.querySelector('.typing-effect');
-                let roleIdx = 0, charIdx = 0, isDeleting = false;
 
-function typeEffect() {
-    const currentRole = roles[roleIdx];
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
-    
-    if (!isDeleting) {
-        let displayText = '';
-        
-        for (let i = 0; i < charIdx; i++) {
-            if (i === charIdx - 1) {
-               
-                const mathExpr = [
-                    `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
-                    `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
-                    `√${Math.floor(Math.random() * 100)}`,
-                    `${Math.floor(Math.random() * 10)}²`,
-                    `∑${Math.floor(Math.random() * 10)}`
-                ];
-                displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
-            } else {
-                
-                displayText += currentRole[i];
-            }
-        }
-        
-       
-        if (charIdx < currentRole.length) {
-            displayText += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        
-        typingElem.textContent = '|' + displayText;
-        charIdx++;
-        
-        if (charIdx > currentRole.length) {
-           
-            typingElem.textContent = '|' + currentRole;
-            isDeleting = true;
-            setTimeout(typeEffect, 500);
-        } else {
-            setTimeout(typeEffect, Math.random() * 100 + 50);
-        }
-    } else {
-       
-        let displayText = currentRole.slice(0, charIdx);
-        if (charIdx > 0) {
-            const mathSymbols = '+-*/^√∑∏∫';
-            displayText += mathSymbols.charAt(Math.floor(Math.random() * mathSymbols.length));
-        }
-        
-        typingElem.textContent = '|' + displayText;
-        charIdx--;
-        
-        if (charIdx <= 0) {
-            isDeleting = false;
-            roleIdx = (roleIdx + 1) % roles.length;
-            typeEffect();
-        } else {
-            setTimeout(typeEffect, Math.random() * 30 + 30);
-        }
-    }
-}
-                
-               
-                typeEffect();
-                </script>
-                <style>
-                .home-title {
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin-right: 0;
-                }
-                .typing-effect {
-                    display: inline-block;
-                    vertical-align: middle;
-                    letter-spacing: 1px;
-                    background: none;
-                    border-radius: 0;
-                    padding: 0 8px;
-                    box-shadow: none;
-                    margin-top: 0;
-                    min-width: 120px;
-                    color: #fff !important;
-                }
-                @media (max-width: 600px) {
-                    .typing-effect {
-                        font-size: 1rem;
-                        padding: 0 6px;
-                        min-width: 80px;
+                <script>
+                    const roles = ["Web Developer", "UI/UX Designer", "Freelancer"];
+                    const typingElem = document.querySelector('.typing-effect');
+                    let roleIdx = 0, charIdx = 0, isDeleting = false;
+
+                    function typeEffect() {
+                        const currentRole = roles[roleIdx];
+                        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
+                        
+                        if (!isDeleting) {
+                            let displayText = '';
+                            
+                            for (let i = 0; i < charIdx; i++) {
+                                if (i === charIdx - 1) {
+                                    const mathExpr = [
+                                        `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
+                                        `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
+                                        `√${Math.floor(Math.random() * 100)}`,
+                                        `${Math.floor(Math.random() * 10)}²`,
+                                        `∑${Math.floor(Math.random() * 10)}`
+                                    ];
+                                    displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
+                                } else {
+                                    displayText += currentRole[i];
+                                }
+                            }
+                            
+                            if (charIdx < currentRole.length) {
+                                displayText += characters.charAt(Math.floor(Math.random() * characters.length));
+                            }
+                            
+                            typingElem.textContent = '|' + displayText;
+                            charIdx++;
+                            
+                            if (charIdx > currentRole.length) {
+                                typingElem.textContent = '|' + currentRole;
+                                isDeleting = true;
+                                setTimeout(typeEffect, 500);
+                            } else {
+                                setTimeout(typeEffect, Math.random() * 100 + 50);
+                            }
+                        } else {
+                            let displayText = currentRole.slice(0, charIdx);
+                            if (charIdx > 0) {
+                                const mathSymbols = '+-*/^√∑∏∫';
+                                displayText += mathSymbols.charAt(Math.floor(Math.random() * mathSymbols.length));
+                            }
+                            
+                            typingElem.textContent = '|' + displayText;
+                            charIdx--;
+                            
+                            if (charIdx <= 0) {
+                                isDeleting = false;
+                                roleIdx = (roleIdx + 1) % roles.length;
+                                typeEffect();
+                            } else {
+                                setTimeout(typeEffect, Math.random() * 30 + 30);
+                            }
+                        }
                     }
-                }
+                    
+                    typeEffect();
+                </script>
+
+                <style>
+                    .home-title {
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 0;
+                    }
+                    .typing-effect {
+                        display: inline-block;
+                        vertical-align: middle;
+                        letter-spacing: 1px;
+                        background: none;
+                        border-radius: 0;
+                        padding: 0 8px;
+                        box-shadow: none;
+                        margin-top: 0;
+                        min-width: 120px;
+                        color: #fff !important;
+                    }
+                    @media (max-width: 600px) {
+                        .typing-effect {
+                            font-size: 1rem;
+                            padding: 0 6px;
+                            min-width: 80px;
+                        }
+                    }
                 </style>
+
                 <div class="home-scroll">
-                    <a href="#about" class="home-scroll-link"><i class='bx bx-up-arrow-alt'></i>SCROLL DOWN</a>
+                    <a href="#about" class="home-scroll-link">
+                        <i class='bx bx-up-arrow-alt'></i>SCROLL DOWN
+                    </a>
                 </div>
-                
             </div>
         </section>
-    
 
         <section class="about section" id="about">
             <h2 class="section-title">About me</h2>
@@ -152,7 +151,11 @@ function typeEffect() {
                 <div>
                     <h2 class="about-subtitle">A.Rzky</h2>
                     <span class="about-profession">Web Designer</span>
-                    <p class="about-text">Hi, I'm Rzky, a passionate web developer and designer dedicated to creating clean, modern, and responsive websites. With a focus on user experience and performance, I build digital solutions that are visually appealing and intuitive. Let's bring your ideas to life!</p>
+                    <p class="about-text">
+                        Hi, I'm Rzky, a passionate web developer and designer dedicated to creating clean, modern, and responsive websites. 
+                        With a focus on user experience and performance, I build digital solutions that are visually appealing and intuitive. 
+                        Let's bring your ideas to life!
+                    </p>
 
                     <div class="about-social">
                         <a href="#" class="about-social-icon"><i class='bx bxl-linkedin'></i></a>
@@ -169,7 +172,6 @@ function typeEffect() {
             <div class="skills-container bd-grid">
                 <div class="skills-box">
                     <h3 class="skils-subtitle">Development</h3>
-
                     <span class="skills-name"><i class='bx bxl-html5'></i> HTML</span>
                     <span class="skills-name"><i class='bx bxl-css3'></i> CSS</span>
                     <span class="skills-name"><i class='bx bxl-javascript'></i> JAVASCRIPT</span>
@@ -178,69 +180,63 @@ function typeEffect() {
                     <span class="skills-name"><i class='bx bxl-php'></i> PHP</span>
 
                     <h3 class="skils-subtitle">Design</h3>
-
                     <span class="skills-name"><i class='bx bxl-figma'></i> FIGMA</span>
                     <span class="skills-name"><i class='bx bxl-adobe'></i> ADOBE</span>
                     <span class="skills-name"><i class='bx bxs-palette'></i> CANVA</span>
                     <span class="skills-name"><i class='bx bxl-adobe'></i> PHOTOSHOP</span>
                 </div>
 
-                <div class="skills-img">
-                    
-                </div>
+                <div class="skills-img"></div>
             </div>
         </section>
 
         <section class="portfolio section" id="portfolio">
             <h2 class="section-title">My Project</h2>
 
-<div class="portfolio-container bd-grid">
-    <a href="https://absensiptindotekhnoplus.wuaze.com/login" 
-       target="_blank" 
-       aria-label="View Absensi PT Indo Tekhnoplus Project" 
-       class="portfolio-item">
-        <div class="portfolio-image">
-            <img src="img/project1.png" 
-                 alt="Absensi PT Indo Tekhnoplus Geotag Application" 
-                 loading="lazy"
-                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'">
-        </div>
-        <div class="portfolio-content">
-            <h3>Absensi PT.INSCIENPRO</h3>
-            <h4>Web-based attendance system with geotagging</h4>
-            <p class="portfolio-description">
-                A comprehensive attendance management system featuring geolocation tracking, 
-                real-time monitoring, and automated reporting capabilities. Built with modern 
-                web technologies to ensure reliable performance and user-friendly experience.
-            </p>
-        </div>
-    </a>
+            <div class="portfolio-container bd-grid">
+                <a href="https://absensiptindotekhnoplus.wuaze.com/login" 
+                   target="_blank" 
+                   aria-label="View Absensi PT Indo Tekhnoplus Project" 
+                   class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="img/project1.png" 
+                             alt="Absensi PT Indo Tekhnoplus Geotag Application" 
+                             loading="lazy"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Absensi PT.INSCIENPRO</h3>
+                        <h4>Web-based attendance system with geotagging</h4>
+                        <p class="portfolio-description">
+                            A comprehensive attendance management system featuring geolocation tracking, 
+                            real-time monitoring, and automated reporting capabilities. Built with modern 
+                            web technologies to ensure reliable performance and user-friendly experience.
+                        </p>
+                    </div>
+                </a>
 
-    <a href="https://absentkpelangi.wuaze.com/login" 
-       target="_blank" 
-       aria-label="View Absensi TK Pelangi Project" 
-       class="portfolio-item">
-        <div class="portfolio-image">
-            <img src="img/project2.png" 
-                 alt="Absensi TK Pelangi Face Recognition Application" 
-                 loading="lazy"
-                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'">
-        </div>
-        <div class="portfolio-content">
-            <h3>Absensi TK Pelangi</h3>
-            <h4>Face recognition attendance system</h4>
-            <p class="portfolio-description">
-                An innovative attendance solution utilizing facial recognition technology 
-                for accurate and contactless check-ins. Features include automatic face detection, 
-                attendance logging, and detailed reporting for school management.
-            </p>
-        </div>
-    </a>
-</div>
-
-
-</div>
-</section>
+                <a href="https://absentkpelangi.wuaze.com/login" 
+                   target="_blank" 
+                   aria-label="View Absensi TK Pelangi Project" 
+                   class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="img/project2.png" 
+                             alt="Absensi TK Pelangi Face Recognition Application" 
+                             loading="lazy"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Absensi TK Pelangi</h3>
+                        <h4>Face recognition attendance system</h4>
+                        <p class="portfolio-description">
+                            An innovative attendance solution utilizing facial recognition technology 
+                            for accurate and contactless check-ins. Features include automatic face detection, 
+                            attendance logging, and detailed reporting for school management.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
 
         <section class="contact section" id="contact">
             <h2 class="section-title">Contact</h2>
@@ -265,97 +261,95 @@ function typeEffect() {
                     <span class="contact-text" id="timezone"></span>
                 </div>
             </div>
-        <script>
-          
-            function updateTimezone() {
-                const tzElem = document.getElementById('timezone');
-                const now = new Date();
-                const options = { 
-                    timeZone: 'Asia/Jakarta',
-                    timeZoneName: 'short',
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                tzElem.textContent = `Jakarta, Indonesia (${now.toLocaleString('en-US', options)})`;
-            }
 
-           
-            updateTimezone();
-            setInterval(updateTimezone, 60000);
-
-           
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = this.querySelector('[name="name"]').value.trim();
-                const email = this.querySelector('[name="email"]').value.trim();
-                const message = this.querySelector('[name="message"]').value.trim();
-
-                if (!name || !email || !message) {
-                    alert('Please fill in all fields');
-                    return;
+            <script>
+                function updateTimezone() {
+                    const tzElem = document.getElementById('timezone');
+                    const now = new Date();
+                    const options = { 
+                        timeZone: 'Asia/Jakarta',
+                        timeZoneName: 'short',
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    };
+                    tzElem.textContent = `Jakarta, Indonesia (${now.toLocaleString('en-US', options)})`;
                 }
 
-          
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address');
-                    return;
+                updateTimezone();
+                setInterval(updateTimezone, 60000);
+
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = this.querySelector('[name="name"]').value.trim();
+                    const email = this.querySelector('[name="email"]').value.trim();
+                    const message = this.querySelector('[name="message"]').value.trim();
+
+                    if (!name || !email || !message) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+
+                    const mailtoLink = `mailto:rizky15raditya@gmail.com?subject=Contact Form: ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+                    
+                    window.location.href = mailtoLink;
+                    this.reset();
+                });
+            </script>
+
+            <style>
+                .contact-link {
+                    color: inherit;
+                    text-decoration: none;
+                    transition: color 0.3s;
                 }
-
-                const mailtoLink = `mailto:rizky15raditya@gmail.com?subject=Contact Form: ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
-                
-                window.location.href = mailtoLink;
-                this.reset();
-            });
-        </script>
-
-        <style>
-            .contact-link {
-                color: inherit;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-            .contact-link:hover {
-                color: #1e40af;
-            }
-            .contact-input {
-                color: #000;
-                background: #fff;
-                padding: 1rem;
-                border: 1px solid #ddd;
-                border-radius: 0.5rem;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            .contact-button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                background: #1e40af;
-                color: #fff;
-                padding: 1rem 2rem;
-                border: none;
-                border-radius: 0.5rem;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-            .contact-button:hover {
-                background: #1e3a8a;
-            }
-        </style>
+                .contact-link:hover {
+                    color: #1e40af;
+                }
+                .contact-input {
+                    color: #000;
+                    background: #fff;
+                    padding: 1rem;
+                    border: 1px solid #ddd;
+                    border-radius: 0.5rem;
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+                .contact-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    background: #1e40af;
+                    color: #fff;
+                    padding: 1rem 2rem;
+                    border: none;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+                .contact-button:hover {
+                    background: #1e3a8a;
+                }
+            </style>
+        </section>
     </main>
 
     <footer class="footer section">
         <div class="footer-container bd-grid">
             <div class="footer-data">
                 <h2 class="footer-title">A.Rzky</h2>
-                <p class="footer-text">Every one can be anything </p>
+                <p class="footer-text">Every one can be anything</p>
             </div>
 
             <div class="footer-data">
@@ -371,7 +365,6 @@ function typeEffect() {
 
             <div class="footer-data">
                 <h2 class="footer-title">FOLLOW</h2>
-
                 <a href="#" class="footer-social"><i class='bx bxl-instagram'></i></a>
                 <a href="#" class="footer-social"><i class='bx bxl-facebook'></i></a>
                 <a href="#" class="footer-social"><i class='bx bxl-twitter'></i></a>
@@ -381,8 +374,5 @@ function typeEffect() {
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
-</body>
-</html>
-  <script  src="./script.js"></script>
 </body>
 </html>
