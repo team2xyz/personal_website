@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rzky | Welcome </title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 
     <header class="l-header">
         <nav class="nav bd-grid">
@@ -28,6 +26,7 @@
                 <i class='bx bx-menu'></i>
             </div>
         </nav>
+        
     </header>
     <main class="l-main">
         <section class="home" id="home" style="position:relative;overflow:hidden;min-height:100vh;">
@@ -43,7 +42,7 @@
                 const typingElem = document.querySelector('.typing-effect');
                 let roleIdx = 0, charIdx = 0, isDeleting = false;
 
-function typeEffect() {
+    function typeEffect() {
     const currentRole = roles[roleIdx];
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
     
@@ -83,7 +82,7 @@ function typeEffect() {
         } else {
             setTimeout(typeEffect, Math.random() * 100 + 50);
         }
-    } else {
+        } else {
        
         let displayText = currentRole.slice(0, charIdx);
         if (charIdx > 0) {
