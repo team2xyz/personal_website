@@ -303,7 +303,7 @@
                 const tzElem = document.getElementById('timezone');
                 const now = new Date();
                 const options = { 
-                    timeZone: 'Asia/Bogor',
+                    timeZone: 'Asia/Jakarta',
                     timeZoneName: 'short',
                     weekday: 'long',
                     year: 'numeric',
@@ -312,7 +312,7 @@
                     hour: '2-digit',
                     minute: '2-digit'
                 };
-                tzElem.textContent = `Bogor, Indonesia (${now.toLocaleString('en-US', options)})`;
+                tzElem.textContent = `Jakarta, Indonesia (${now.toLocaleString('en-US', options)})`;
             }
 
            
