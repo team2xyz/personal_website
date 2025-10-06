@@ -107,6 +107,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 @media screen and (max-width: 768px) {
+    .nav-link {
+        color: #fff !important;
+        text-shadow: 0 1px 8px rgba(30,64,175,0.18);
+    }
     .nav-menu {
         background: transparent;
         backdrop-filter: none;
