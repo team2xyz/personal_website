@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A.Rzky | Welcome</title>
-    <link rel="icon" type="image/png" href="img/my.jpeg" />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.Rzky | Welcome </title>
+    <link rel="icon" type="image/png" href="img/my.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav-logo">A.Rzky</a>
+                
+                 <a href="#" class="nav-logo">A.Rzky</a>
             </div>
 
             <div class="nav-menu" id="nav-menu">
@@ -26,311 +25,410 @@
             </div>
 
             <div class="nav-toggle" id="nav-toggle">
-                <i class="bx bx-menu"></i>
+                <i class='bx bx-menu'></i>
             </div>
         </nav>
+        
     </header>
-
     <main class="l-main">
-        <!-- Home Section -->
-        <section class="home" id="home" style="position: relative; overflow: hidden; min-height: 100vh;">
-            <video autoplay muted loop playsinline
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-                <source src="video/Video.mp4" type="video/mp4" />
+        <section class="home" id="home" style="position:relative;overflow:hidden;min-height:100vh;">
+            <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+                <source src="video/Video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-
-            <div class="home-container bd-grid" style="position: relative; z-index: 1;">
-                <h1 class="home-title"><span>A.</span><br />Rzky</h1>
-                <span class="typing-effect" style="font-size: 1.2rem; color: #fff; font-weight: 500; margin-left: 18px; vertical-align: middle;"></span>
-
+            <div class="home-container bd-grid" style="position:relative;z-index:1;">
+                <h1 class="home-title"><span>A.</span><br>Rzky</h1>
+                <span class="typing-effect" style="font-size:1.2rem;color:#fff;font-weight:500;margin-left:18px;vertical-align:middle;"></span>
                 <script>
-                    const roles = ["Web Developer", "UI/UX Designer", "Freelancer"];
-                    const typingElem = document.querySelector('.typing-effect');
-                    let roleIdx = 0, charIdx = 0, isDeleting = false;
+                const roles = ["Web Developer", "UI/UX Designer", "Freelancer"];
+                const typingElem = document.querySelector('.typing-effect');
+                let roleIdx = 0, charIdx = 0, isDeleting = false;
 
-                    function typeEffect() {
-                        const currentRole = roles[roleIdx];
-                        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
-
-                        if (!isDeleting) {
-                            let displayText = '';
-
-                            for (let i = 0; i < charIdx; i++) {
-                                if (i === charIdx - 1) {
-                                    const mathExpr = [
-                                        `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
-                                        `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
-                                        `√${Math.floor(Math.random() * 100)}`,
-                                        `${Math.floor(Math.random() * 10)}²`,
-                                        `∑${Math.floor(Math.random() * 10)}`
-                                    ];
-                                    displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
-                                } else {
-                                    displayText += currentRole[i];
-                                }
-                            }
-
-                            if (charIdx < currentRole.length) {
-                                displayText += characters.charAt(Math.floor(Math.random() * characters.length));
-                            }
-
-                            typingElem.textContent = '|' + displayText;
-                            charIdx++;
-
-                            if (charIdx > currentRole.length) {
-                                typingElem.textContent = '|' + currentRole;
-                                isDeleting = true;
-                                setTimeout(typeEffect, 500);
-                            } else {
-                                setTimeout(typeEffect, Math.random() * 100 + 50);
-                            }
-                        } else {
-                            let displayText = currentRole.slice(0, charIdx);
-                            if (charIdx > 0) {
-                                const mathSymbols = '+-*/^√∑∏∫';
-                                displayText += mathSymbols.charAt(Math.floor(Math.random() * mathSymbols.length));
-                            }
-
-                            typingElem.textContent = '|' + displayText;
-                            charIdx--;
-
-                            if (charIdx <= 0) {
-                                isDeleting = false;
-                                roleIdx = (roleIdx + 1) % roles.length;
-                                typeEffect();
-                            } else {
-                                setTimeout(typeEffect, Math.random() * 30 + 30);
-                            }
-                        }
-                    }
-
-                    typeEffect();
+    function typeEffect() {
+    const currentRole = roles[roleIdx];
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/^√∑∏∫';
+    
+    if (!isDeleting) {
+        let displayText = '';
+        
+        for (let i = 0; i < charIdx; i++) {
+            if (i === charIdx - 1) {
+               
+                const mathExpr = [
+                    `${Math.floor(Math.random() * 10)}+${Math.floor(Math.random() * 10)}`,
+                    `${Math.floor(Math.random() * 10)}×${Math.floor(Math.random() * 10)}`,
+                    `√${Math.floor(Math.random() * 100)}`,
+                    `${Math.floor(Math.random() * 10)}²`,
+                    `∑${Math.floor(Math.random() * 10)}`
+                ];
+                displayText += mathExpr[Math.floor(Math.random() * mathExpr.length)];
+            } else {
+                
+                displayText += currentRole[i];
+            }
+        }
+        
+       
+        if (charIdx < currentRole.length) {
+            displayText += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        
+        typingElem.textContent = '|' + displayText;
+        charIdx++;
+        
+        if (charIdx > currentRole.length) {
+           
+            typingElem.textContent = '|' + currentRole;
+            isDeleting = true;
+            setTimeout(typeEffect, 500);
+        } else {
+            setTimeout(typeEffect, Math.random() * 100 + 50);
+        }
+        } else {
+       
+        let displayText = currentRole.slice(0, charIdx);
+        if (charIdx > 0) {
+            const mathSymbols = '+-*/^√∑∏∫';
+            displayText += mathSymbols.charAt(Math.floor(Math.random() * mathSymbols.length));
+        }
+        
+        typingElem.textContent = '|' + displayText;
+        charIdx--;
+        
+        if (charIdx <= 0) {
+            isDeleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            typeEffect();
+        } else {
+            setTimeout(typeEffect, Math.random() * 30 + 30);
+        }
+    }
+}
+                
+               
+                typeEffect();
                 </script>
-
                 <style>
-                    .home-title {
-                        display: inline-block;
-                        vertical-align: middle;
-                        margin-right: 0;
-                    }
-
+                .home-title {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 0;
+                }
+                .typing-effect {
+                    display: inline-block;
+                    vertical-align: middle;
+                    letter-spacing: 1px;
+                    background: none;
+                    border-radius: 0;
+                    padding: 0 8px;
+                    box-shadow: none;
+                    margin-top: 0;
+                    min-width: 120px;
+                    color: #fff !important;
+                }
+                @media (max-width: 600px) {
                     .typing-effect {
-                        display: inline-block;
-                        vertical-align: middle;
-                        letter-spacing: 1px;
-                        background: none;
-                        border-radius: 0;
-                        padding: 0 8px;
-                        box-shadow: none;
-                        margin-top: 0;
-                        min-width: 120px;
-                        color: #fff !important;
+                        font-size: 1rem;
+                        padding: 0 6px;
+                        min-width: 80px;
                     }
-
-                    @media (max-width: 600px) {
-                        .typing-effect {
-                            font-size: 1rem;
-                            padding: 0 6px;
-                            min-width: 80px;
-                        }
-                    }
+                }
                 </style>
-
                 <div class="home-scroll">
-                    <a href="#about" class="home-scroll-link"><i class="bx bx-up-arrow-alt"></i>SCROLL DOWN</a>
+                    <a href="#about" class="home-scroll-link"><i class='bx bx-up-arrow-alt'></i>SCROLL DOWN</a>
                 </div>
+                
             </div>
         </section>
+    
 
-        <!-- About Section -->
         <section class="about section" id="about">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">About me</h2>
 
-            <div class="about-container bd-grid" style="justify-content: center; align-items: center;">
-                <div class="about-img"
-                    style="width: 140px; height: 140px; aspect-ratio: 1/1; overflow: hidden; border-radius: 90%; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin: auto; display: flex; align-items: center; justify-content: center;">
-                    <img src="img/my.jpeg" alt="Me"
-                        style="width: 130%; height: 130%; object-fit: cover; border-radius: 30%; display: block;" />
+            <div class="about-container bd-grid" style="justify-content:center;align-items:center;">
+                <div class="about-img" style="width:140px;height:140px;aspect-ratio:1/1;overflow:hidden;border-radius:90%;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin:auto;display:flex;align-items:center;justify-content:center;">
+                    <img src="img/my.jpeg" alt="Me" style="width:130%;height:130%;object-fit:cover;border-radius:30%;display:block;">
                 </div>
 
                 <div>
                     <h2 class="about-subtitle">A.Rzky</h2>
-                    <span class="about-profession">Web Designer & Developer</span>
-                    <p class="about-text">
-                        Hello! I’m Rzky — a dedicated web developer and UI/UX designer passionate about crafting clean,
-                        modern, and responsive websites. I focus on delivering user-friendly digital experiences that
-                        balance aesthetics with performance. Let’s bring your ideas to life together!
-                    </p>
+                    <span class="about-profession">Web Designer</span>
+                    <p class="about-text">Hi, I'm Rzky, a passionate web developer and designer dedicated to creating clean, modern, and responsive websites. With a focus on user experience and performance, I build digital solutions that are visually appealing and intuitive. Let's bring your ideas to life!</p>
 
                     <div class="about-social">
-                        <a href="https://www.linkedin.com/in/ahmad-rizky-57236b158" target="_blank" rel="noopener"
-                            class="about-social-icon" aria-label="LinkedIn Profile"><i class="bx bxl-linkedin"></i></a>
-                        <a href="mailto:contact@ahrzky.xyz" class="about-social-icon" title="Email"><i
-                                class="bx bx-envelope"></i></a>
-                        <a href="https://www.instagram.com/ahrzky.xyz" target="_blank" rel="noopener"
-                            class="about-social-icon" aria-label="Instagram Profile"><i class="bx bxl-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ahmad-rizky-57236b158?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" class="about-social-icon"><i class='bx bxl-linkedin'></i></a>
+                        <a href="mailto:contact@ahrzky.xyz" class="about-social-icon" title="Email"><i class='bx bx-envelope'></i></a>
+                        <a href="https://www.instagram.com/ahrzky.xyz?igsh=YmZtNmd2N2dpZTI=" target="_blank" rel="noopener" class="about-social-icon"><i class='bx bxl-instagram'></i></a>
                     </div>
-                </div>
+                </div>   
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section class="skills section" id="skills">
             <h2 class="section-title">Skills</h2>
 
             <div class="skills-container bd-grid">
                 <div class="skills-box">
-                    <h3 class="skills-subtitle">Web Development</h3>
+                    <h3 class="skils-subtitle">Development</h3>
 
-                    <span class="skills-name"><i class="bx bxl-html5"></i> HTML</span>
-                    <span class="skills-name"><i class="bx bxl-css3"></i> CSS</span>
-                    <span class="skills-name"><i class="bx bxl-javascript"></i> JavaScript</span>
-                    <span class="skills-name"><i class="bx bxl-sass"></i> SCSS</span>
-                    <span class="skills-name"><i class="bx bxl-react"></i> React</span>
-                    <span class="skills-name"><i class="bx bxl-php"></i> PHP</span>
-                    <span class="skills-name"><i class="bx bxs-file-doc"></i> Microsoft Office</span>
-                    <span class="skills-name"><i class="bx bxs-data"></i> SQL</span>
-                    <span class="skills-name"><i class="bx bxl-java"></i> NetBeans</span>
-                    <span class="skills-name"><i class="bx bxs-network-chart"></i> Basic Cisco Configuration & Troubleshooting</span>
-                    <span class="skills-name"><i class="bx bxs-cog"></i> Computer Troubleshooting & Hardware Maintenance</span>
+                    <span class="skills-name"><i class='bx bxl-html5'></i> HTML</span>
+                    <span class="skills-name"><i class='bx bxl-css3'></i> CSS</span>
+                    <span class="skills-name"><i class='bx bxl-javascript'></i> JAVASCRIPT</span>
+                    <span class="skills-name"><i class='bx bxl-sass'></i> SCSS</span>
+                    <span class="skills-name"><i class='bx bxl-react'></i> REACT</span>
+                    <span class="skills-name"><i class='bx bxl-php'></i> PHP</span>
+                    <span class="skills-name"><i class='bx bxs-file-doc'></i> Microsoft Office</span>
+                    <span class="skills-name"><i class='bx bxs-data'></i> SQL</span>
+                    <span class="skills-name"><i class='bx bxl-java'></i> NetBeans</span>
+                    <span class="skills-name"><i class='bx bxs-network-chart'></i> Basic Cisco Configuration & Troubleshooting</span>
+                    <span class="skills-name"><i class='bx bxs-cog'></i> Computer Troubleshooting & Hardware Maintenance</span>
+                    
+                    <h3 class="skils-subtitle">Software & Tools</h3>
+                    
+                    <span class="skills-name"><i class='bx bxs-file-doc'></i> Microsoft Office</span>
+                    <span class="skills-name"><i class='bx bxs-business'></i> SAP</span>
+                    <span class="skills-name"><i class='bx bxs-data'></i> Oracle</span>
+                    <span class="skills-name"><i class='bx bxl-github'></i> GitHub</span>
+                    <span class="skills-name"><i class='bx bx-code-alt'></i> Vercel.app</span>
+                    <span class="skills-name"><i class='bx bxl-visual-studio'></i> VS Code</span>
+                    <span class="skills-name"><i class='bx bxs-server'></i> XAMPP</span>
+                    <span class="skills-name"><i class='bx bxs-dashboard'></i> Grafana</span>
 
-                    <h3 class="skills-subtitle">Tools & Technologies</h3>
+                    <h3 class="skils-subtitle">Design</h3>
 
-                    <span class="skills-name"><i class="bx bxs-file-doc"></i> Microsoft Office</span>
-                    <span class="skills-name"><i class="bx bxs-business"></i> SAP</span>
-                    <span class="skills-name"><i class="bx bxs-data"></i> Oracle</span>
-                    <span class="skills-name"><i class="bx bxl-github"></i> GitHub</span>
-                    <span class="skills-name"><i class="bx bx-code-alt"></i> Vercel.app</span>
-                    <span class="skills-name"><i class="bx bxl-visual-studio"></i> VS Code</span>
-                    <span class="skills-name"><i class="bx bxs-server"></i> XAMPP</span>
-                    <span class="skills-name"><i class="bx bxs-dashboard"></i> Grafana</span>
-
-                    <h3 class="skills-subtitle">Design & Creative Tools</h3>
-
-                    <span class="skills-name"><i class="bx bxl-figma"></i> Figma</span>
-                    <span class="skills-name"><i class="bx bxl-adobe"></i> Adobe Creative Suite</span>
-                    <span class="skills-name"><i class="bx bxs-palette"></i> Canva</span>
-                    <span class="skills-name"><i class="bx bxl-adobe"></i> Photoshop (Basic)</span>
+                    <span class="skills-name"><i class='bx bxl-figma'></i> FIGMA</span>
+                    <span class="skills-name"><i class='bx bxl-adobe'></i> ADOBE</span>
+                    <span class="skills-name"><i class='bx bxs-palette'></i> CANVA</span>
+                    <span class="skills-name"><i class='bx bxl-adobe'></i> PHOTOSHOP Basic</span>
                 </div>
 
                 <div class="skills-img">
-                    <!-- Placeholder for image or illustration -->
+                    
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio Section -->
         <section class="portfolio section" id="portfolio">
             <h2 class="section-title">My Portfolio</h2>
 
-            <div class="portfolio-container bd-grid">
-                <a href="https://absensipt-inscienpro-indonesia.wufoo.com/forms/absensi-pt-inscienpro/"
-                    target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port1.png" alt="PT. INSCIENPRO Attendance System" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">PT. INSCIENPRO Attendance System</h3>
-                        <p class="portfolio-description">
-                            A GPS-based web attendance application built using PHP, JavaScript, MySQL, and Google Maps API. Features real-time location tracking, authentication, and automated reporting.
-                        </p>
-                    </div>
-                </a>
 
-                <a href="https://ahrzky.herokuapp.com/todo-react" target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port2.png" alt="To-Do React App" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">To-Do React App</h3>
-                        <p class="portfolio-description">
-                            A simple to-do list web application built with React and JavaScript, showcasing clean UI and state management.
-                        </p>
-                    </div>
-                </a>
+<div class="portfolio-container bd-grid">
+    <a href="https://absensipt-inscienpro-indonesia.wuaze.com/login" 
+       target="_blank" 
+       aria-label="View Absensi PT Indo Tekhnoplus Project" 
+       class="portfolio-item">
+        <div class="portfolio-image">
+            <img src="img/project1.png" 
+                 alt="Absensi PT Indo Tekhnoplus Geotag Application" 
+                 loading="lazy"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+PT+Indo+Tekhnoplus&background=1e40af&color=fff&size=250'">
+        </div>
+        <div class="portfolio-content">
+            <h3>Absensi PT.INSCIENPRO</h3>
+            <h4>Web-based Attendance System with Geotagging</h4>
+            <p class="portfolio-description">
+                <strong>Technologies:</strong> PHP, JavaScript, MySQL, Google Maps API<br>
+                <strong>Role:</strong> Full-stack Developer<br><br>
+                Developed a comprehensive attendance management system featuring geolocation tracking, 
+                real-time monitoring, and automated reporting capabilities. Implemented secure authentication, 
+                location verification, and responsive design for cross-device compatibility.
+            </p>
+        </div>
+    </a>
 
-                <a href="https://ahrzky.xyz" target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port3.png" alt="Personal Portfolio Website" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">Personal Portfolio Website</h3>
-                        <p class="portfolio-description">
-                            My personal portfolio site built using HTML, CSS, and JavaScript, featuring a responsive layout and interactive UI elements.
-                        </p>
-                    </div>
-                </a>
+    <a href="https://absentkpelangi.wuaze.com/login" 
+       target="_blank" 
+       aria-label="View Absensi TK Pelangi Project" 
+       class="portfolio-item">
+        <div class="portfolio-image">
+            <img src="img/project2.png" 
+                 alt="Absensi TK Pelangi Face Recognition Application" 
+                 loading="lazy"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Absensi+TK+Pelangi&background=1e40af&color=fff&size=250'">
+        </div>
+        <div class="portfolio-content">
+            <h3>Absensi TK Pelangi</h3>
+            <h4>Face Recognition Attendance System</h4>
+            <p class="portfolio-description">
+                <strong>Technologies:</strong> PHP, JavaScript, MySQL, Face-API.js<br>
+                <strong>Role:</strong> Lead Developer<br><br>
+                Engineered an innovative attendance solution utilizing facial recognition technology 
+                for accurate and contactless check-ins. Implemented automatic face detection, 
+                attendance logging, and detailed reporting for school management. Optimized for 
+                performance and ease of use by non-technical staff.
+            </p>
+        </div>
+    </a>
 
-                <a href="https://ahrzky.github.io/MI-1D-ABP-2-Web-Lanjutan" target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port4.png" alt="Online Attendance System" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">Online Attendance System</h3>
-                        <p class="portfolio-description">
-                            A web-based attendance system developed using PHP and MySQL with full CRUD functionality.
-                        </p>
-                    </div>
-                </a>
+    <a href="http://kpi-toko-adyalamacc.wuaze.com/login.php" 
+       target="_blank" 
+       aria-label="View KPI Toko Adyalamacc Project" 
+       class="portfolio-item">
+        <div class="portfolio-image">
+            <img src="img/project3.png" 
+                 alt="KPI Toko Adyalamacc Application" 
+                 loading="lazy"
+                 onerror="this.src='https://ui-avatars.com/api/?name=KPI+Toko+Adyalamacc&background=1e40af&color=fff&size=250'">
+        </div>
+        <div class="portfolio-content">
+            <h3>KPI Toko Ady Alam Accessories</h3>
+            <h4>KPI Management System</h4>
+            <p class="portfolio-description">
+                <strong>Technologies:</strong> PHP, JavaScript, MySQL, Bootstrap<br>
+                <strong>Role:</strong> Sole Developer (Undergraduate Thesis Project)<br><br>
+                Designed and implemented a comprehensive web-based system for managing key performance indicators (KPI) in retail stores. Features 
+                KPI monitoring, reporting, and user management to help store owners optimize business operations.
 
-                <a href="https://github.com/ahrzky/MovieDB" target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port5.png" alt="MovieDB React App" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">MovieDB React App</h3>
-                        <p class="portfolio-description">
-                            A movie database application built with React and The Movie Database (TMDb) API, providing search and browsing functionalities.
-                        </p>
-                    </div>
-                </a>
+            </p>
+        </div>
+    </a>
+</div>
 
-                <a href="https://ahrzky.github.io/todolist" target="_blank" rel="noopener" class="portfolio-content">
-                    <img src="img/port6.png" alt="To-Do List" />
-                    <div class="portfolio-data">
-                        <h3 class="portfolio-title">To-Do List</h3>
-                        <p class="portfolio-description">
-                            A simple to-do list web app built with vanilla JavaScript, HTML, and CSS.
-                        </p>
-                    </div>
-                </a>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
+</div>
+</section>
+
         <section class="contact section" id="contact">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title">Contact</h2>
 
             <div class="contact-container bd-grid">
                 <div class="contact-info">
-                    <div>
-                        <i class="bx bx-envelope contact-icon"></i>
-                        <h3>Email</h3>
-                        <p>contact@ahrzky.xyz</p>
-                    </div>
+                    <h3 class="contact-subtitle">EMAIL</h3>
+                    <span class="contact-text">
+                        <a href="mailto:rizky12raditya@gmail.com" class="contact-link">
+                            rizky12raditya@gmail.com
+                        </a>
+                    </span>
 
-                    <div>
-                        <i class="bx bx-phone contact-icon"></i>
-                        <h3>Phone / WhatsApp</h3>
-                        <p>+62 812-1542-3438</p>
-                    </div>
+                    <h3 class="contact-subtitle">PHONE</h3>
+                    <span class="contact-text">
+                        <a href="https://wa.me/628811634273?text=Halo%20saya%20ingin%20bertanya" target="_blank">
+                            +62 881 1634 273
+                        </a>
+                    </span>
 
-                    <div>
-                        <i class="bx bx-map contact-icon"></i>
-                        <h3>Location</h3>
-                        <p>Bogor, Indonesia</p>
-                        <small><i>(GMT +7 Jakarta Timezone)</i></small>
-                    </div>
+                    <h3 class="contact-subtitle">ADDRESS</h3>
+                    <span class="contact-text" id="timezone"></span>
                 </div>
-
-                <form action="https://formspree.io/f/xgebjqkp" method="POST" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Full Name" required />
-                    <input type="email" name="_replyto" placeholder="Your Email" required />
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
             </div>
-        </section>
+        <script>
+          
+            function updateTimezone() {
+                const tzElem = document.getElementById('timezone');
+                const now = new Date();
+                const options = { 
+                    timeZone: 'Asia/Jakarta',
+                    timeZoneName: 'short',
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                tzElem.textContent = `Bogor, Indonesia (${now.toLocaleString('en-US', options)})`;
+            }
+
+           
+            updateTimezone();
+            setInterval(updateTimezone, 60000);
+
+           
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = this.querySelector('[name="name"]').value.trim();
+                const email = this.querySelector('[name="email"]').value.trim();
+                const message = this.querySelector('[name="message"]').value.trim();
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+          
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+
+                const mailtoLink = `mailto:rizky12raditya@gmail.com?subject=Contact Form: ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+                
+                window.location.href = mailtoLink;
+                this.reset();
+            });
+        </script>
+
+        <style>
+            .contact-link {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .contact-link:hover {
+                color: #1e40af;
+            }
+            .contact-input {
+                color: #000;
+                background: #fff;
+                padding: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 0.5rem;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                background: #1e40af;
+                color: #fff;
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .contact-button:hover {
+                background: #1e3a8a;
+            }
+        </style>
     </main>
 
-    <!-- Footer -->
     <footer class="footer section">
-        <p class="footer-text">
-            &copy; 2025 A.Rzky. Empowering ideas through design & code.
-        </p>
+        <div class="footer-container bd-grid">
+            <div class="footer-data">
+                <h2 class="footer-title">A.Rzky</h2>
+                <p class="footer-text">Every one can be anything </p>
+            </div>
+
+            <div class="footer-data">
+                <h2 class="footer-title">A.Rzky</h2>
+                <ul>
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#skills" class="footer-link">Skills</a></li>
+                    <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-data">
+                <h2 class="footer-title">FOLLOW</h2>
+
+                <a href="https://www.instagram.com/ahrzky.xyz?igsh=YmZtNmd2N2dpZTI=" target="_blank" rel="noopener" class="footer-social"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer-social"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer-social"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
     </footer>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
+</body>
+</html>
+  <script  src="./script.js"></script>
 </body>
 </html>
